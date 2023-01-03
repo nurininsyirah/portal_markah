@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Static Navigation - SB Admin</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="
+        anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
+
+        <style>
+        table {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        table td, table th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+        table tr:nth-child(even){background-color: #f2f2f2;}
+        table tr:hover {background-color: #ddd;}
+        
+        table th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #ff7b00;
+          color: white;
+        }
+        </style>
+
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">Portal Pemarkahan</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Utama</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Papan Pemuka
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Servis</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Borang
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="layout-static.html">Borang Pemarkahan</a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Pages
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Authentication
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="login.html">Login</a>
+                                            <a class="nav-link" href="register.html">Register</a>
+                                            <a class="nav-link" href="password.html">Forgot Password</a>
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Error
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="401.html">401 Page</a>
+                                            <a class="nav-link" href="404.html">404 Page</a>
+                                            <a class="nav-link" href="500.html">500 Page</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="sb-sidenav-menu-heading">Addons</div>
+                            <a class="nav-link" href="charts.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Charts
+                            </a>
+                            <a class="nav-link" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Tables
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Start Bootstrap
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Borang Pemarkahan</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.html">Papan Pemuka</a></li>
+                            <li class="breadcrumb-item active">Borang Pemarkahan</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <p class="mb-0">
+                                    This page is an example of using static navigation. By removing the
+                                    <code>.sb-nav-fixed</code>
+                                    class from the
+                                    <code>body</code>
+                                    , the top navigation and side navigation will become static on scroll. Scroll down this page to see an example.
+                                </p>
+                            </div>
+                            <br>
+                                <form 
+                                  method="POST" 
+                                  action="https://script.google.com/macros/s/AKfycbwvwwFbD-eLSt5Ggmu_mt7MI0otUhXyengIEj8j9WOvH1YzClEggBoMUC4939juUz8o/exec"
+                                  id="score-form"
+                                >   
+
+                                  <div class="row">
+                                    <div class="col">
+                                      <input name="Name" type="text" class="form-control" placeholder="Name" required>
+                                    </div>
+                                    <div class="col">
+                                      <input name="Score" type="text" class="form-control" placeholder="Score" required>
+                                    </div>
+                                  </div>
+                                  <br>
+                                  <button type="submit">Send</button>
+                                </form>
+                        </div>
+                        <div></div>
+                        <div class="card mb-4"><div class="card-body">When scrolling, the navigation stays at the top of the page. This is the end of the static navigation demo.</div>
+                        <div>
+                          <br>
+                        <table class="output"></table>
+                        </div>  
+                    </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <!-- <script>
+            const api_url = "https://docs.google.com/spreadsheets/d/1981dll-3WuWKdSZmg83hmTdXUCq_xSXErCmqeqdsCr8/edit#gid=0";
+              
+            // Defining async function
+            async function getapi(url) {
+                
+                // Storing response
+                const response = await fetch(url);
+                
+                // Storing data in form of JSON
+                var data = await response.json();
+                console.log(data);
+                if (response) {
+                    hideloader();
+                }
+                show(data);
+            }
+            // Calling that async function
+            getapi(api_url);
+              
+            // Function to hide the loader
+            function hideloader() {
+                document.getElementById('loading').style.display = 'none';
+            }
+            // Function to define innerHTML for HTML table
+            function show(data) {
+                let tab = 
+                    `<tr>
+                      <th>Date</th>
+                      <th>Name</th>
+                      <th>Score</th>
+                     </tr>`;
+                
+                // Loop to access all rows 
+                for (let r of data.list) {
+                    tab += `<tr> 
+                <td>${r.date} </td>
+                <td>${r.name}</td>
+                <td>${r.score}</td>         
+            </tr>`;
+                }
+                // Setting innerHTML as tab variable
+                document.getElementById("employees").innerHTML = tab;
+            }
+        </script> -->
+        <script>
+          window.addEventListener("load", function() {
+            const form = document.getElementById('score-form');
+            form.addEventListener("submit", function(e) {
+            e.preventDefault();
+              const data = new FormData(form);
+              const action = e.target.action;
+              fetch(action, {
+                method: 'POST',
+                body: data,
+              })
+              .then(() => {
+                alert("Success!");
+                form.reset();  // Reset all form data
+
+              })
+              
+            });
+
+          });
+        </script>
+        <!-- <script>
+            //https://docs.google.com/spreadsheets/d/1981dll-3WuWKdSZmg83hmTdXUCq_xSXErCmqeqdsCr8/edit?usp=sharing
+            const output = document.querySelector('.output');
+            const url = 'https://docs.google.com/spreadsheets/d/';
+            const ssid = '1981dll-3WuWKdSZmg83hmTdXUCq_xSXErCmqeqdsCr8';
+            const query1 = `/gviz/tq?`;
+            const endpoint1 = `${url}${ssid}${query1}`;
+            output.textContent = endpoint1;
+            fetch(endpoint1)
+                .then(res => res.text())
+                .then(data => {
+                    console.log(data);
+
+                    // const temp = data.substr(47).slice(0, -2);
+                    // const json = JSON.parse(temp);
+                    // const rows = json.table.rows;
+                    // rows.forEach((row) => {
+                    //     const div = document.createElement('div');
+                    //     const temp1 = row.c;
+                    //     temp1.forEach((cell) => {
+                    //         const box = document.createElement('div');
+                    //         box.textContent = cell.v;
+                    //         box.classList.add('box');
+                    //         div.append(box);
+                    //     })
+                    //     output.append(div);
+                    // })
+                })
+        </script> -->
+
+        <script>
+            const sheetId = '1981dll-3WuWKdSZmg83hmTdXUCq_xSXErCmqeqdsCr8';
+            const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?`;
+            const sheetName = 'user-data';
+            const query = encodeURIComponent('Select *')
+            const url = `${base}&sheet=${sheetName}&tq=${query}`
+            const data = []
+            document.addEventListener('DOMContentLoaded', init)
+            const output = document.querySelector('.output')
+            function init() {
+                fetch(url)
+                    .then(res => res.text())
+                    .then(rep => {
+                        //Remove additional text and extract only JSON:
+                        const jsonData = JSON.parse(rep.substring(47).slice(0, -2));
+                        console.log(rep)
+                        const colz = [];
+                        const tr = document.createElement('tr');
+                        //Extract column labels
+                        jsonData.table.cols.forEach((heading) => {
+                            if (heading.label) {
+                                let column = heading.label;
+                                colz.push(column);
+                                const th = document.createElement('th');
+                                th.innerText = column;
+                                tr.appendChild(th);
+                            }
+                        })
+                        output.appendChild(tr);
+                        //extract row data:
+                        jsonData.table.rows.forEach((rowData) => {
+                            const row = {};
+                            colz.forEach((ele, ind) => {
+                                row[ele] = (rowData.c[ind] != null) ? rowData.c[ind].v : '';
+                            })
+                            data.push(row);
+                        })
+                        processRows(data);
+                    })
+            }
+             
+            function processRows(json) {
+                json.forEach((row) => {
+                    const tr = document.createElement('tr');
+                    const keys = Object.keys(row);
+                
+                    keys.forEach((key) => {
+                        const td = document.createElement('td');
+                        td.textContent = row[key];
+                        tr.appendChild(td);
+                    })
+                    output.appendChild(tr);
+                })
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
